@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+:root {
+    --branco: #FFFFFF;
+    --cor-de-fundo: #1a086b;
+    --fundo-senha: #000000;
+    --fundo-texto: #001E40;
+    --borda: #0075FF;
+    --borda-hover: #020202; /* Nova: para efeitos de passar o mouse */
+    --roboto: 'Roboto', sans-serif;
+    --roboto-mono: 'Roboto Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+body {
+    color: var(--branco);
+    background-color: var(--cor-de-fundo);
+    font-family: var(--roboto);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.conteudo {
+    max-width: 800px; /* Reduzido para o app ficar mais centralizado e elegante */
+    margin: 0 auto;
+}
+
+/* --- Cabeçalho --- */
+.conteudo-titulo {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.titulo-principal {
+    font-family: var(--roboto-mono);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--branco);
+    text-shadow: 0 0 10px rgba(0, 117, 255, 0.3);
+}
+
+.titulo-secundario {
+    font-size: 18px;
+    color: #8A99A8; /* Tom cinza azulado para o subtítulo */
+    margin-top: 8px;
+}
+
+/* --- Bloco da Senha Gerada --- */
+.conteudo-senha {
+    margin-top: 40px; 
+    background: var(--fundo-senha);
+    padding: 24px;
+    border-radius: 8px;
+    border-bottom: 6px solid var(--borda);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#campo-senha {
+    background-color: transparent;
+    border: none;
+    color: var(--branco);
+    font-family: var(--roboto-mono);
+    font-size: 32px;
+    font-weight: 700;
+    width: 80%;
+    letter-spacing: 2px;
+}
+
+#campo-senha:focus {
+    outline: none;
+}
+
+/* --- Seção de Parâmetros/Configurações --- */
+.parametro {
+    background-color: var(--fundo-texto);
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    margin-top: 32px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.parametro-titulo {
+    font-family: var(--roboto-mono);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 117, 255, 0.2);
+    padding-bottom: 12px;
+}
+
+/* Layout das Opções */
+.parametro-coluna__senha {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento uniforme entre os elementos */
+}
+
+.parametro-senha {
+    width: 100%;
+}
+
+.parametro-senha__titulo {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #A0B2C6;
+}
+
+/* Customização para inputs de texto/número dentro dos parâmetros, se houver */
+.parametro-senha__texto {
+    background-color: var(--cor-de-fundo);
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    color: var(--branco);
+    padding: 10px 14px;
+    font-family: var(--roboto-mono);
+    font-size: 18px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.parametro-senha__texto:focus {
+    outline: none;
+    border-color: var(--borda-hover);
+    box-shadow: 0 0 8px rgba(0, 224, 255, 0.2);
+}
+
+/* --- Botões --- */
+.parametro-senha-botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.parametro-senha__botao {
+    background-color: var(--borda);
+    color: var(--branco);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 28px;
+    font-family: var(--roboto-mono);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.parametro-senha__botao:hover {
+    background-color: var(--borda-hover);
+    color: var(--cor-de-fundo); /* Contraste escuro no fundo claro ao passar o mouse */
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.parametro-senha__botao:active {
+    transform: translateY(0);
+}
+
+/* --- Responsividade --- */
+@media screen and (min-width: 768px) {
+    .parametro-coluna__senha {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .parametro-senha {
+        flex: 1;
+    }
+
+    .parametro-senha__botao {
+        width: auto; /* Botão não ocupa a tela inteira em desktops */
+    }
+}
